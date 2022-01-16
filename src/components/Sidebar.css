@@ -1,0 +1,28 @@
+.sidebar {
+    /* width: 100%; */
+    background-color: white;
+    position: fixed;
+    left: 0;
+    top: 61px;
+    bottom: 0;
+}
+
+.sidebar__menu {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+/* 已在sidebarButton設定 */
+/* .sidebar__menu > li > a {
+    width: 72px;
+    padding: 16px 0 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+} */
+
+/* .sidebar__button_icon {
+    margin-bottom: 6px;
+    font-size: 20px;
+} */

@@ -12,9 +12,9 @@ function Header() {
     return (
         <div className="header">
             <div className="header__left">
-                <Box p={1}>
-                    <MenuOutlinedIcon />
-                </Box>
+
+                <MenuOutlinedIcon className="header__toggleMenu"/>
+
                 <img
                     className="header__logo"
                     src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"
@@ -22,28 +22,21 @@ function Header() {
                 />
             </div>
             <div className="header__input">
-                <input type="text" placeholder="搜尋"/>
-                <button className="header__searchbutton">
+                <input type="text" placeholder="搜尋" />
+                <button className="header__searchButton">
                     <SearchIcon />
                 </button>
             </div>
 
             <div className="header__icons">
-                <Box p={1} pt={1} mr={1}>
-                    <VideoCallOutlinedIcon style={{ fontSize: "28"}}/>
-                </Box>
-                <Box p={1} pt={1} mr={1}>
-                    <AppsIcon />
-                </Box>
-                <Box p={1} pt={1} mr={1}>
-                    <NotificationsNoneOutlinedIcon />
-                </Box>
-                <Box p={1}>
-                    <Avatar
-                        alt="Emerail"
-                        src=""
-                    />
-                </Box>
+                <VideoCallOutlinedIcon className="header__icon" style={{ fontSize: "28" }} />
+                <AppsIcon className="header__icon" />
+                <NotificationsNoneOutlinedIcon className="header__icon" />
+                <Avatar
+                    className="header__icon avatar"
+                    alt="user avatar"
+                    src=""
+                />
             </div>
         </div>
     )

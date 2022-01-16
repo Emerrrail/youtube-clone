@@ -1,3 +1,16 @@
 * {
     margin: 0;
 }
+
+:root {
+    --searchbox-border-color: #ccc;
+    --searchbox-border-shadow-color: #eee;
+    --searchbox-button-color: #f8f8f8;
+    --searchbox-button-border-color: #d3d3d3;
+    --searchbox-button-hover-color: #f0f0f0;
+    --searchbox-button-hover-border-color: #c6c6c6;
+    --searchbox-background: hsl(0, 0%, 100%);
+    --searchbox-text-color: hsl(0, 0%, 6.7%);
+    --spec-themed-blue: #065fd4;
+    --general-padding: 0.5rem;
+}
