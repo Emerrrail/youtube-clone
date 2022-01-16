@@ -6,15 +6,15 @@ import VideoCallOutlinedIcon from '@material-ui/icons/VideoCallOutlined';
 import AppsIcon from '@material-ui/icons/Apps';
 import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import Avatar from '@material-ui/core/Avatar';
-import Box from '@material-ui/core/Box';
 
-function Header() {
+function Header({ onFullMenuToggle }) {
     return (
         <div className="header">
             <div className="header__left">
-
-                <MenuOutlinedIcon className="header__toggleMenu"/>
-
+                <MenuOutlinedIcon
+                    className="header__toggleMenu"
+                    onClick={onFullMenuToggle}
+                />
                 <img
                     className="header__logo"
                     src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"

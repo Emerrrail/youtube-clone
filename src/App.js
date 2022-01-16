@@ -1,19 +1,31 @@
 import "./App.css";
-import React from "react";
+import React, { useState } from "react";
+import SidebarFullMenu from "./components/SidebarFullMenu";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import RecomVideos from "./components/RecomVideos";
-import Tags from "./components/Tags";
 
 function App() {
+
+    const [isFullMenuOpen, setIsFullMenuOpen] = useState(false);
+
+    function onFullMenuToggle() {
+        setIsFullMenuOpen(!isFullMenuOpen);
+    }
+
     return (
         <div className="app">
-
-            <Header>
-                <Tags />
-            </Header>
+            <SidebarFullMenu 
+                isFullMenuOpen={isFullMenuOpen}
+                onFullMenuToggle={onFullMenuToggle}
+            />
+            <Header
+                onFullMenuToggle={onFullMenuToggle}
+            />
             <div className="app__page">
-                <Sidebar className="app__sidebar"/>
+                <Sidebar
+                    className="app__sidebar"
+                />
                 <RecomVideos />
             </div>
 

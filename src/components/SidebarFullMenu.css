@@ -1,0 +1,41 @@
+.sidebarFullMenu {
+    width: 240px;
+    height: 100%;
+    z-index: 500;
+    position: absolute;
+    top: 0;
+    left: -240px;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-transition: .2s ease all;
+    transition: .2s ease all;
+    background: white;
+}
+    .open {
+      -webkit-transform: translateX(240px);
+      transform: translateX(240px);
+    }
+    .menu {
+          padding: 15px 20px;
+          color: #fff;
+    }
+
+.sidebarFullMenu__logo {
+    padding: 18px 14px 18px 16px;
+    height: 25px;
+    object-fit: contain;
+}
+
+.sidebarFullMenu__top {
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebarFullMenu__toggleMenu {
+    padding: var(--general-padding);
+}
+
+.sidebarFullMenu__toggleMenu:hover {
+    cursor: pointer;
+}
