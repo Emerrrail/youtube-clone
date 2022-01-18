@@ -1,5 +1,4 @@
 import React from 'react'
-import "./SidebarButton.css";
 
 function SidebarButton({ Icon, title }) {
     return (

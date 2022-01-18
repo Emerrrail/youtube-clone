@@ -1,4 +1,54 @@
 .defaultVideos {
     margin-left: 72px;
+    margin-top: 24px;
     background-color: var(--searchbox-button-color);
 }
+
+.defaultVideos__container {
+    margin: 0 var(--grid-item-margin);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+}
+
+.videoCard {
+    margin-bottom: 40px;
+    margin-left: calc(var(--grid-item-margin)/2);
+    margin-right: calc(var(--grid-item-margin)/2);
+}
+
+.videoCard__img {
+    width: 100%;
+}
+
+.videoCard__info {
+    display: flex;
+}
+
+.videoCard__avatar {
+    margin: 12px 12px 0 0;
+}
+
+.videoCard__title {
+    margin-top: 12px;
+    padding-right: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+.videoCard__bottom {
+    margin-top: 10px;
+}
+.videoCard__channelName, .videoCard__viewsAndTime {
+    color: var(--spec-text-color-secondary);
+    font-size: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+

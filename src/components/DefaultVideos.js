@@ -1,41 +1,24 @@
 import "./DefaultVideos.css";
 import React from 'react'
+import VideoCard from "./VideoCard";
 
-function DefaultVideos() {
+function DefaultVideos({ defaultVideos }) {
+
+    const renderDefaultVideos = defaultVideos.map((defaultVideo) => {
+        return <VideoCard
+            key={defaultVideo.id}
+            img={defaultVideo.snippet.thumbnails.medium.url}
+            title={defaultVideo.snippet.title}
+            // channelImg={}
+            channelName={defaultVideo.snippet.channelTitle}
+            views={defaultVideo.statistics.viewCount}
+        />
+    })
     return (
         <div className="defaultVideos">
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
-            <h2>This is where wideos go</h2>
+            <div className="defaultVideos__container">
+                {renderDefaultVideos}
+            </div>
         </div>
     )
 }

@@ -1,5 +1,6 @@
 * {
     margin: 0;
+    font-family: "Roboto", "Arial", sans-serif;
 }
 
 :root {
@@ -12,5 +13,13 @@
     --searchbox-background: hsl(0, 0%, 100%);
     --searchbox-text-color: hsl(0, 0%, 6.7%);
     --spec-themed-blue: #065fd4;
+    --spec-text-color-secondary: #606060;
     --general-padding: 0.5rem;
+    --grid-item-margin: 16px;
+    --grid-item-min-width: 320px;
+    --grid-item-max-width: 360px;
+    --grid-items-per-row: 3;
+    --grid-posts-per-row: 3;
+    --grid-slim-items-per-row: 3;
+
 }

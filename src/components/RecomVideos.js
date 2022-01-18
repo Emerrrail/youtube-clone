@@ -2,11 +2,11 @@ import React from 'react'
 import Tags from './Tags';
 import DefaultVideos from './DefaultVideos';
 
-function RecomVideos() {
+function RecomVideos({ defaultVideos }) {
     return (
         <div className="recomVideos">
             <Tags />
-            <DefaultVideos />
+            <DefaultVideos defaultVideos={defaultVideos}/>
         </div>
     )
 }

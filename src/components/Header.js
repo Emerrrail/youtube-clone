@@ -1,7 +1,7 @@
 import "./Header.css";
 import React from 'react'
+import Searchbar from "./Searchbar";
 import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
-import SearchIcon from '@material-ui/icons/Search';
 import VideoCallOutlinedIcon from '@material-ui/icons/VideoCallOutlined';
 import AppsIcon from '@material-ui/icons/Apps';
 import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
@@ -21,13 +21,7 @@ function Header({ onFullMenuToggle }) {
                     alt=""
                 />
             </div>
-            <div className="header__input">
-                <input type="text" placeholder="搜尋" />
-                <button className="header__searchButton">
-                    <SearchIcon />
-                </button>
-            </div>
-
+            <Searchbar />
             <div className="header__icons">
                 <VideoCallOutlinedIcon className="header__icon" style={{ fontSize: "28" }} />
                 <AppsIcon className="header__icon" />
@@ -42,4 +36,4 @@ function Header({ onFullMenuToggle }) {
     )
 }
 
-export default Header
+export default Header;

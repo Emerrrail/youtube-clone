@@ -1,5 +1,6 @@
 import "./App.css";
-import React, { useState } from "react";
+import youtube from "./apis/youtube";
+import React, { useState, useEffect } from "react";
 import SidebarFullMenu from "./components/SidebarFullMenu";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
@@ -8,14 +9,32 @@ import RecomVideos from "./components/RecomVideos";
 function App() {
 
     const [isFullMenuOpen, setIsFullMenuOpen] = useState(false);
+    const [defaultVideos, setDefaultVideos] = useState([]);
 
-    function onFullMenuToggle() {
+    const onFullMenuToggle = () => {
         setIsFullMenuOpen(!isFullMenuOpen);
     }
 
+    useEffect(() => {
+        const getDefaultVideos = async () => {
+            const response = await youtube.get('/videos', {
+                params: {
+                    part: "snippet, contentDetails, statistics",
+                    chart: "mostPopular",
+                    maxResults: 20,
+                    regionCode: "TW"
+                }
+            });
+            setDefaultVideos(response.data.items);
+        }
+        getDefaultVideos();
+    }, []);
+
+
     return (
         <div className="app">
-            <SidebarFullMenu 
+            <SidebarFullMenu
+                className="app__sidebarFullMenu"
                 isFullMenuOpen={isFullMenuOpen}
                 onFullMenuToggle={onFullMenuToggle}
             />
@@ -26,7 +45,7 @@ function App() {
                 <Sidebar
                     className="app__sidebar"
                 />
-                <RecomVideos />
+                <RecomVideos defaultVideos={defaultVideos}/>
             </div>
 
         </div>

@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-function SidebarRow() {
+function SidebarRow({ Icon, IconClicked, title, setSidebarRowClicked, sidebarRowClicked }) {
+
+    const onSidebarRowClick = (target) => {
+        setSidebarRowClicked(target.target.innerText);
+    }
+
     return (
-        <div className="sidebarRow">
-            I am a row
+        <div
+            className="sidebarRow"
+            onClick={(target) => console.log(target.target, 'inside')}
+        >
+            <Icon className="sidebarRow__icon"/>
+            <div className={`sidebarRow__title${sidebarRowClicked === title ? " active" : ''}`}>
+                {title}
+            </div>
+
         </div>
     )
 }
