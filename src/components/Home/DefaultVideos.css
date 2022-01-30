@@ -30,8 +30,9 @@
 }
 
 .videoCard__title {
-    margin-top: 12px;
+    padding-top: 12px;
     padding-right: 24px;
+    margin: 0;
     font-size: 14px;
     font-weight: 500;
     overflow: hidden;
@@ -46,6 +47,7 @@
     margin-top: 10px;
 }
 .videoCard__channelName, .videoCard__viewsAndTime {
+    margin: 0;
     color: var(--spec-text-color-secondary);
     font-size: 10px;
     overflow: hidden;

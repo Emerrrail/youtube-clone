@@ -27,6 +27,7 @@
     flex-direction: column;
     align-items: center;
     font-size: 14px;
+    color: var(--spec-text-color-primary);
 }
 
 .sidebarButton:hover {
@@ -37,6 +38,7 @@
 .sidebarButton > h2 {
     font-size: 12px;
     font-weight: 300;
+    margin: 0;
 }
 
 .sidebarButton__icon {

@@ -1,55 +1,55 @@
-import "./App.css";
-import youtube from "./apis/youtube";
-import React, { useState, useEffect } from "react";
-import SidebarFullMenu from "./components/SidebarFullMenu";
-import Header from "./components/Header";
-import Sidebar from "./components/Sidebar";
-import RecomVideos from "./components/RecomVideos";
+import { React, useEffect } from 'react';
+import Home from './components/Home/Home';
+import Watch from './components/Watch/Watch';
+
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Link
+  } from "react-router-dom";
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { youtubeLibraryLoaded } from './store/actions/api';
+
+const API_KEY = 'AIzaSyDwmS4ws-fmKEsrKsN_8tsSPbRJjtqX9YY';
 
 function App() {
 
-    const [isFullMenuOpen, setIsFullMenuOpen] = useState(false);
-    const [defaultVideos, setDefaultVideos] = useState([]);
+    function loadYoutubeApi() {
+        const script = document.createElement("script");
+        script.src = "https://apis.google.com/js/client.js";
 
-    const onFullMenuToggle = () => {
-        setIsFullMenuOpen(!isFullMenuOpen);
+        script.onload = () => {
+            window.gapi.load('client', () => {
+                window.gapi.client.setApiKey(API_KEY);
+                window.gapi.client.load('youtube', 'v3', () => {
+                    youtubeLibraryLoaded();
+                });
+            });
+        };
+
+        document.body.appendChild(script);
     }
 
-    useEffect(() => {
-        const getDefaultVideos = async () => {
-            const response = await youtube.get('/videos', {
-                params: {
-                    part: "snippet, contentDetails, statistics",
-                    chart: "mostPopular",
-                    maxResults: 20,
-                    regionCode: "TW"
-                }
-            });
-            setDefaultVideos(response.data.items);
-        }
-        getDefaultVideos();
-    }, []);
 
+    
+
+    useEffect(() => {
+        loadYoutubeApi()
+    }
+        , [])
 
     return (
-        <div className="app">
-            <SidebarFullMenu
-                className="app__sidebarFullMenu"
-                isFullMenuOpen={isFullMenuOpen}
-                onFullMenuToggle={onFullMenuToggle}
-            />
-            <Header
-                onFullMenuToggle={onFullMenuToggle}
-            />
-            <div className="app__page">
-                <Sidebar
-                    className="app__sidebar"
-                />
-                <RecomVideos defaultVideos={defaultVideos}/>
-            </div>
-
-        </div>
+        
+            <Routes>
+                <Route path="/watch" element={<Watch />} />
+                <Route path="/" element={<Home />} />
+            </Routes>
     );
-}
 
-export default App;
+}
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ youtubeLibraryLoaded }, dispatch);
+}
+export default connect(null, mapDispatchToProps)(App);

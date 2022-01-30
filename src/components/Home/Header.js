@@ -12,6 +12,7 @@ function Header({ onFullMenuToggle }) {
         <div className="header">
             <div className="header__left">
                 <MenuOutlinedIcon
+                    style={{ fontSize: "40" }}
                     className="header__toggleMenu"
                     onClick={onFullMenuToggle}
                 />
@@ -23,9 +24,9 @@ function Header({ onFullMenuToggle }) {
             </div>
             <Searchbar />
             <div className="header__icons">
-                <VideoCallOutlinedIcon className="header__icon" style={{ fontSize: "28" }} />
-                <AppsIcon className="header__icon" />
-                <NotificationsNoneOutlinedIcon className="header__icon" />
+                <VideoCallOutlinedIcon className="header__icon" style={{ fontSize: "40" }} />
+                <AppsIcon className="header__icon" style={{ fontSize: "40" }} />
+                <NotificationsNoneOutlinedIcon className="header__icon" style={{ fontSize: "40" }} />
                 <Avatar
                     className="header__icon avatar"
                     alt="user avatar"

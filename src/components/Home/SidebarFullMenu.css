@@ -22,7 +22,7 @@
 
 .sidebarFullMenu__logo {
     padding: 18px 14px 18px 16px;
-    height: 25px;
+    width: 120px;
     object-fit: contain;
 }
 
@@ -51,6 +51,7 @@
     display: flex;
     align-items: center;
     flex: 1;
+    color: var(--spec-text-color-primary);
 }
 
 .sidebarRow:hover {

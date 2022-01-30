@@ -20,6 +20,7 @@ function SidebarFullMenu({ isFullMenuOpen, onFullMenuToggle }) {
         <div className={`sidebarFullMenu${isFullMenuOpen === true ? ' open' : ''}`}>
             <div className="sidebarFullMenu__top">
                 <MenuOutlinedIcon
+                    style={{ fontSize: "40px" }}
                     className="sidebarFullMenu__toggleIcon"
                     onClick={onFullMenuToggle}
                 />
@@ -57,7 +58,7 @@ function SidebarFullMenu({ isFullMenuOpen, onFullMenuToggle }) {
                         sidebarRowClicked={sidebarRowClicked}
                     />
                 </a></li>
-                
+
             </ul>
         </div>
     )
