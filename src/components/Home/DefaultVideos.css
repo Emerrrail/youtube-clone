@@ -1,6 +1,6 @@
 .defaultVideos {
     margin-left: 72px;
-    margin-top: 24px;
+    padding-top: 24px;
     background-color: var(--searchbox-button-color);
 }
 

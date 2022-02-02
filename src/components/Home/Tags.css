@@ -1,5 +1,6 @@
 .tags {
     margin-left: 72px;
+    padding-left: 24px;
     height: 56px;
     position: sticky;
     top: 56px;
@@ -8,4 +9,26 @@
     border-top: 1px solid var(--searchbox-border-shadow-color);
     border-bottom: 1px solid var(--searchbox-border-shadow-color);
     z-index: 1000;
+    display: flex;
+    align-items: center;
 }
+
+.tagButton {
+    height: 32px;
+    margin: 12px 12px 12px 0;
+    background-color: var(--searchbox-border-shadow-color);
+    border: 1px solid var(--searchbox-border-color);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.tagButton:hover {
+    background-color: var(--searchbox-button-hover-color);
+    cursor: pointer;
+}
+
+.tagButton__text {
+    padding: 0 12px;
+}
+
