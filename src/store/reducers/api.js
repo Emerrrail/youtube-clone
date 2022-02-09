@@ -1,4 +1,4 @@
-import {YOUTUBE_LIBRARY_LOADED} from '../actions/api';
+import {YOUTUBE_LIBRARY_LOADED} from '../actions';
 
 const initialState = {
   libraryLoaded: false,

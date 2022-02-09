@@ -2,22 +2,25 @@ import "./DefaultVideos.css";
 import React from 'react'
 import VideoCard from "./VideoCard";
 
-function DefaultVideos({ defaultVideos }) {
+function DefaultVideos({ videos }) {
 
-    const renderDefaultVideos = defaultVideos.map((defaultVideo) => {
+    const renderVideos = videos.map((video) => {
         return <VideoCard
-            key={defaultVideo.id}
-            img={defaultVideo.snippet.thumbnails.medium.url}
-            title={defaultVideo.snippet.title}
+            pathname="/watch"
+            search={`?v=${video.id}`}
+            key={video.id}
+            videoId={video.id}
+            img={video.snippet.thumbnails.medium.url}
+            title={video.snippet.title}
             // channelImg={}
-            channelName={defaultVideo.snippet.channelTitle}
-            views={defaultVideo.statistics.viewCount}
+            channelName={video.snippet.channelTitle}
+            views={video.statistics.viewCount}
         />
     })
     return (
         <div className="defaultVideos">
             <div className="defaultVideos__container">
-                {renderDefaultVideos}
+                {renderVideos}
             </div>
         </div>
     )

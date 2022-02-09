@@ -7,29 +7,17 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import RecomVideos from "./RecomVideos";
 
-import { getAllPopularVideosRequested } from '../../store/actions/api';
-
-function mapStateToProps (state) {
-    console.log(state.videosReducer, "state.videosReducer")
-    return {videos: state.videosReducer.videos}   //回傳出去
-}
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ getAllPopularVideosRequested }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
 
 
-function Home({videos}) {   //當props傳進來
+function Home({ state, videos }) {   //當props傳進來
 
-    const [isFullMenuOpen, setIsFullMenuOpen] = useState(false);
-    const [defaultVideos, setDefaultVideos] = useState([]);
+    // const [isFullMenuOpen, setIsFullMenuOpen] = useState(false);
+    // const [defaultVideos, setDefaultVideos] = useState([]);
+    // const onFullMenuToggle = () => {
+    //     setIsFullMenuOpen(!isFullMenuOpen);
+    // }
 
-    const onFullMenuToggle = () => {
-        setIsFullMenuOpen(!isFullMenuOpen);
-    }
-
-    useEffect(() => {
+    // useEffect(() => {
         // const getDefaultVideos = async () => {
         //     const response = await youtube.get('/videos', {
         //         params: {
@@ -42,30 +30,29 @@ function Home({videos}) {   //當props傳進來
         //     setDefaultVideos(response.data.items);
         // }
         // getDefaultVideos();
-        getAllPopularVideosRequested();
-    }, []);
+        // getAllPopularVideosRequested();
+    // }, [state]);  //state改變就re-render
 
 
     return (
         <div className="home">
-            <SidebarFullMenu
+            {/* <SidebarFullMenu
                 className="home__sidebarFullMenu"
                 isFullMenuOpen={isFullMenuOpen}
                 onFullMenuToggle={onFullMenuToggle}
             />
             <Header
                 onFullMenuToggle={onFullMenuToggle}
-            />
+            /> */}
             <div className="home__page">
                 <Sidebar
                     className="home__sidebar"
                 />
-                <RecomVideos defaultVideos={videos}/>
+                <RecomVideos videos={videos} />
             </div>
         </div>
     );
 }
 
 
-
-// export default Home;
+export default Home;

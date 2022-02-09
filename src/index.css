@@ -1,6 +1,10 @@
 * {
     margin: 0;
-    font-family: "Roboto", "Arial", sans-serif;
+    font-family: "Roboto", "Arial", sans-serif;   
+}
+
+a {
+    text-decoration: none;
 }
 
 :root {
@@ -14,7 +18,9 @@
     --searchbox-text-color: hsl(0, 0%, 6.7%);
     --spec-themed-blue: #065fd4;
     --spec-text-color-primary: #030303;
+    --spec-text-color-primary-inverse: #fff;
     --spec-text-color-secondary: #606060;
+    --spec-text-color-disable: #909090;
     --general-padding: 0.5rem;
     --grid-item-margin: 16px;
     --grid-item-min-width: 320px;

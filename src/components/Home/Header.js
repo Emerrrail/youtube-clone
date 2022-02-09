@@ -1,5 +1,6 @@
 import "./Header.css";
 import React from 'react'
+import { Link } from 'react-router-dom';
 import Searchbar from "./Searchbar";
 import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
 import VideoCallOutlinedIcon from '@material-ui/icons/VideoCallOutlined';
@@ -16,11 +17,13 @@ function Header({ onFullMenuToggle }) {
                     className="header__toggleMenu"
                     onClick={onFullMenuToggle}
                 />
-                <img
-                    className="header__logo"
-                    src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"
-                    alt=""
-                />
+                <Link to="/">
+                    <img
+                        className="header__logo"
+                        src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"
+                        alt=""
+                    />
+                </Link>
             </div>
             <Searchbar />
             <div className="header__icons">

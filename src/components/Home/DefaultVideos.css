@@ -41,6 +41,7 @@
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
     white-space: normal;
+    color: var(--spec-text-color-primary);
 }
 
 .videoCard__bottom {

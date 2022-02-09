@@ -16,16 +16,35 @@
 .tagButton {
     height: 32px;
     margin: 12px 12px 12px 0;
-    background-color: var(--searchbox-border-shadow-color);
+    background-color: var(--searchbox-button-color);
     border: 1px solid var(--searchbox-border-color);
     border-radius: 16px;
     display: flex;
     align-items: center;
+    transition: .2s ease all;
+}
+
+.tagButtonNoHover.selected {
+    height: 32px;
+    margin: 12px 12px 12px 0;
+    background-color: var(--spec-text-color-primary);
+    border: 1px solid var(--spec-text-color-primary);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    transition: .2s ease all;
+}
+
+.tagButtonNoHover.selected > .tagButton__text {
+    color: var(--spec-text-color-primary-inverse);
+    transition: .2s ease all;
+    
 }
 
 .tagButton:hover {
-    background-color: var(--searchbox-button-hover-color);
+    background-color: var(--searchbox-border-shadow-color);
     cursor: pointer;
+    transition: .2s ease all;
 }
 
 .tagButton__text {

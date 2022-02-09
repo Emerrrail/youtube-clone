@@ -1,4 +1,4 @@
-import {GET_ALL_POPULAR_VIDEOS_REQUESTED, GET_ALL_POPULAR_VIDEOS_SUCCESS, GET_ALL_POPULAR_VIDEOS_ERROR} from '../actions/api';
+import {GET_ALL_POPULAR_VIDEOS_REQUESTED, GET_ALL_POPULAR_VIDEOS_SUCCESS, GET_ALL_POPULAR_VIDEOS_ERROR} from '../actions';
 
 const initialState = {
     videos: [],
@@ -6,7 +6,7 @@ const initialState = {
     error: null
 }
 
-export const videosReducer = (state = initialState, action) => {
+export const videos = (state = initialState, action) => {
     switch (action.type) {
         case GET_ALL_POPULAR_VIDEOS_REQUESTED:
             return {...state, loading: true}
