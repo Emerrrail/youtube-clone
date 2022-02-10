@@ -30,7 +30,6 @@ const getApi = async (videoId) => {
             id: videoId
         }
     });
-    console.log(response, 'getApi end with response');
 
     return response;
 }

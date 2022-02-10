@@ -14,13 +14,14 @@ export const GET_ALL_POPULAR_VIDEOS_REQUESTED = 'GET_ALL_POPULAR_VIDEOS_REQUESTE
 export const GET_ALL_POPULAR_VIDEOS_SUCCESS = 'GET_ALL_POPULAR_VIDEOS_SUCCESS';
 export const GET_ALL_POPULAR_VIDEOS_ERROR = 'GET_ALL_POPULAR_VIDEOS_ERROR';
 
-export const GET_WATCH_VIDEO_DETAILS_REQUESTED = 'GET_WATCH_VIDEO_DETAILS_REQUESTED';
-
 export const getAllPopularVideosRequested = () => {
     return {
         type: GET_ALL_POPULAR_VIDEOS_REQUESTED
     };
 }
+
+
+export const GET_WATCH_VIDEO_DETAILS_REQUESTED = 'GET_WATCH_VIDEO_DETAILS_REQUESTED';
 
 export const getWatchVideoDetailsRequested = (videoId) => {
     return {
@@ -31,6 +32,17 @@ export const getWatchVideoDetailsRequested = (videoId) => {
     }
 }
 
+
+export const SEARCH_TERM_REQUESTED = 'SEARCH_TERM_REQUESTED';
+
+export const searchTermRequested = (term) => {
+    return {
+        type: SEARCH_TERM_REQUESTED,
+        payload: {
+            term: term
+        }
+    }
+}
 
 
 export const VIDEO_RENDERED_TAG_SELECTED = 'VIDEO_RENDERED_TAG_SELECTED';

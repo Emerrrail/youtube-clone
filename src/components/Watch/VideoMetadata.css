@@ -1,0 +1,29 @@
+.videoMetadata {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.videoMetadata__view_published {
+    color: var(--spec-text-color-secondary);
+    font-weight: 400;
+}
+
+.videoMetadata__right {
+    display: flex;
+}
+
+.videoMetadata_icon {
+    margin: 6px;
+}
+
+.metaBtn {
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+}
+
+.videoMetadata__right_text {
+    font-weight: bold;
+}
+

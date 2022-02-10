@@ -37,16 +37,10 @@ function Watch({ state, watchVideo }) {
 
 
     useEffect(() => {
-
         dispatch(getWatchVideoDetailsRequested(videoId));
-        console.log(watchVideo, 'watchvideo');
     }, [])
 
-
-    if (watchVideo === []) {
-        console.log('null')
-        return null;
-    }
+    console.log(state);
     
     return (
         <div className="watch">

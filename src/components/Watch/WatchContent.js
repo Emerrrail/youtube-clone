@@ -1,3 +1,4 @@
+import './WatchContent.css';
 import React from 'react';
 import VideoPlayer from './VideoPlayer';
 import VideoMetadata from './VideoMetadata';
@@ -13,17 +14,20 @@ function WatchContent({ watchVideo, videoId }) {
     console.log(video.snippet, 'watchcontent')
 
     return (
-        <div className="videoContent">
+        <div className="videoContent container-xl">
             <VideoPlayer videoId={videoId} />
-            <h4 className="videoContent__title">
-                {video.snippet.title}
-            </h4>
-            <VideoMetadata video={video} />
-            
+            <div className="videoContent__title_metadata">
+                <h4 className="videoContent__title">
+                    {video.snippet.title}
+                </h4>
+                <VideoMetadata video={video} />
+            </div>
             {/* <RelatedVideos /> */}
-            {/* <Comments /> */}
+            
             <hr />
             <VideoInfo video={video} />
+            <hr />
+            {/* <Comments /> */}
         </div>
     );
 }

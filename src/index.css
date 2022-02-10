@@ -17,6 +17,7 @@ a {
     --searchbox-background: hsl(0, 0%, 100%);
     --searchbox-text-color: hsl(0, 0%, 6.7%);
     --spec-themed-blue: #065fd4;
+    --spec-brand-button-background: #c00;
     --spec-text-color-primary: #030303;
     --spec-text-color-primary-inverse: #fff;
     --spec-text-color-secondary: #606060;
