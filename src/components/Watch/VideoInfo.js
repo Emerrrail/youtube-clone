@@ -4,7 +4,7 @@ import Avatar from '@material-ui/core/Avatar';
 
 function VideoInfo({ video }) {
 
-    const channelTitle = video.snippet.channelTitle
+    const channelName = video.snippet.channelTitle
     const description = video.snippet.description
     const subscribeCount = 500000 / 10000
 
@@ -14,8 +14,8 @@ function VideoInfo({ video }) {
                 <div className="videoInfo__top_left">
                     <Avatar className="videoInfo__avatar" />
                     <div>
-                        <div className="videoInfo__channelTitle">
-                            {channelTitle}
+                        <div className="videoInfo__channelName">
+                            {channelName}
                         </div>
                         <div className="videoInfo__subscribeCount">
                             {subscribeCount}萬 位訂閱者

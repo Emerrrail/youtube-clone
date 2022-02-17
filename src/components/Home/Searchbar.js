@@ -1,18 +1,22 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+
+import { useNavigate } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
-import { searchTermRequested } from '../../store/actions/index';
 
-function Searchbar() {
 
-    const dispatch = useDispatch();
+function Searchbar({ setCurrentPath }) {
 
-    const [term, setTerm] = useState("");
+    
+
+    const navigate = useNavigate();
+
+    const [query, setQuery] = useState("");
 
     const onSubmit = (event) => {
         event.preventDefault();
-        
-        dispatch(searchTermRequested(term));
+        navigate(`/results?search_query=${query}`);
+        setCurrentPath(query);
+        // window.location.reload(); //重整一次才能打API
     }
 
     
@@ -23,8 +27,8 @@ function Searchbar() {
                 <input
                     type="text"
                     placeholder="搜尋"
-                    value={term}
-                    onChange={(event) => setTerm(event.target.value)}
+                    value={query}
+                    onChange={(event) => setQuery(event.target.value)}
                 />
                 <button className="searchBar__searchButton">
                     <SearchIcon />

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from './Home/Header';
 import SidebarFullMenu from './Home/SidebarFullMenu';
 
-function AppLayout({ children }) {
+function AppLayout({ children, setCurrentPath }) {
 
     const [isFullMenuOpen, setIsFullMenuOpen] = useState(false);
 
@@ -17,7 +17,7 @@ function AppLayout({ children }) {
                 isFullMenuOpen={isFullMenuOpen}
                 onFullMenuToggle={onFullMenuToggle}
             />
-            <Header onFullMenuToggle={onFullMenuToggle} />
+            <Header setCurrentPath={setCurrentPath} onFullMenuToggle={onFullMenuToggle} />
             {children}
         </div>
     );

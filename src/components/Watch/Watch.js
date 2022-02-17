@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { getSearchParam } from '../../helper-function/url';
 import { getWatchVideoDetailsRequested } from '../../store/actions';
 import WatchContent from './WatchContent';
 
@@ -24,14 +25,6 @@ function Watch({ state, watchVideo }) {
     const getVideoId = () => {
         return getSearchParam(window.location, 'v');
     }
-
-    const getSearchParam = (location, name) => {
-        if (!location || !location.search) {
-            return null;
-        }
-        const searchParams = new URLSearchParams(location.search);
-        return searchParams.get(name); //取得videoId
-    };
 
     const videoId = getVideoId();
 

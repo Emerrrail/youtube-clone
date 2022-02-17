@@ -1,8 +1,8 @@
-import { React, useEffect } from 'react';
+import { React, useEffect, useState } from 'react';
 import AppLayout from './components/AppLayout';
 import Home from './components/Home/Home';
 import Watch from './components/Watch/Watch';
-import Result from './components/Result/Result';
+import Results from './components/Results/Results';
 
 import {
     BrowserRouter as Router,
@@ -20,7 +20,7 @@ function mapStateToProps(state) {
     return {
         state: state,
         videos: state.videos.videos,
-        searchResult: state.searchTerm.result
+        searchResult: state.searchQuery.results
     }   //回傳出去
 }
 // function mapDispatchToProps(dispatch) {
@@ -54,11 +54,18 @@ function App({ state, videos, searchResult }) {
     }
         , [state])
 
+    const [currentPath, setCurrentPath] = useState('');
+
+    // const onCurrentPathChange = (query) => {
+    //     setCurrentPath(query);
+    // }
+
+
     return (
-        <AppLayout>
+        <AppLayout setCurrentPath={setCurrentPath}>
             <Routes>
                 <Route path="/watch" element={<Watch videos={videos} />} />
-                <Route path="/result" element={<Result searchResult={searchResult} />} />
+                <Route path="/results" element={<Results currentPath={currentPath} searchResult={searchResult} />} />
                 <Route path="/" element={<Home state={state} videos={videos} />} />
             </Routes>
         </AppLayout>

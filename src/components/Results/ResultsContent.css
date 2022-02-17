@@ -1,0 +1,9 @@
+.resultsContent {
+    margin-left: 72px;
+    padding: 16px 24px;
+    background-color: var(--searchbox-button-color);
+}
+
+.resultsContent__hr {
+    color: var(--spec-text-color-secondary);
+}

@@ -35,11 +35,11 @@ export const getWatchVideoDetailsRequested = (videoId) => {
 
 export const SEARCH_TERM_REQUESTED = 'SEARCH_TERM_REQUESTED';
 
-export const searchTermRequested = (term) => {
+export const searchTermRequested = (query) => {
     return {
         type: SEARCH_TERM_REQUESTED,
         payload: {
-            term: term
+            query: query
         }
     }
 }

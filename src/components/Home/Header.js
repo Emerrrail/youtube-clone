@@ -8,7 +8,7 @@ import AppsIcon from '@material-ui/icons/Apps';
 import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import Avatar from '@material-ui/core/Avatar';
 
-function Header({ onFullMenuToggle }) {
+function Header({ onFullMenuToggle, setCurrentPath }) {
     return (
         <div className="header">
             <div className="header__left">
@@ -25,7 +25,7 @@ function Header({ onFullMenuToggle }) {
                     />
                 </Link>
             </div>
-            <Searchbar />
+            <Searchbar setCurrentPath={setCurrentPath} />
             <div className="header__icons">
                 <VideoCallOutlinedIcon className="header__icon" style={{ fontSize: "40" }} />
                 <AppsIcon className="header__icon" style={{ fontSize: "40" }} />
