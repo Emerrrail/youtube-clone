@@ -1,14 +1,15 @@
 import './ResultsContent.css';
 import React from 'react'
 import VideoItem from './VideoItem';
+import InfiniteScroll from '../InfiniteScroll';
 
-function ResultsContent({ results }) {
+function ResultsContent({ results, bottomReachedCallback }) {
 
-    const renderedVideoItems = results.map((result) => {
+    const renderedVideoItems = results.map((result, index) => {
         return <VideoItem
             pathname="/watch"
             search={`?v=${result.id.videoId}`}
-            key={result.id.videoId}
+            key={index}
             img={result.snippet.thumbnails.medium.url}
             title={result.snippet.title}
             // channelImg={}
@@ -19,10 +20,12 @@ function ResultsContent({ results }) {
         />
     })
 
+
     return (
         <div className="resultsContent">
             <hr className="resultsContent__hr" />
             {renderedVideoItems}
+            <InfiniteScroll bottomReachedCallback={bottomReachedCallback} />
         </div>
     )
 }

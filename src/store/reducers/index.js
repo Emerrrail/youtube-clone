@@ -12,5 +12,5 @@ export default combineReducers({
   watchVideo,
   tagSelected,
   videoSelected,
-  searchQuery
+  searchQuery,
 });

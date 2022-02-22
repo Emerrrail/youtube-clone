@@ -3,9 +3,13 @@ import { videosReducer } from '../reducers/videos';
 import { watcherVideosSaga } from "./requests/fetchAllVideos"
 import { watcherWatchVideoSaga } from './requests/fetchWatchVideo';
 import { watcherSearchQuerySaga } from './requests/fetchSearchQuery';
+import { watcherSearchQueryLoadMoreSaga } from './requests/fetchSearchQuery';
 
 export default function* rootSaga(){
   yield all([
-    watcherVideosSaga(), watcherWatchVideoSaga(), watcherSearchQuerySaga()
+    watcherVideosSaga(), 
+    watcherWatchVideoSaga(), 
+    watcherSearchQuerySaga(),
+    watcherSearchQueryLoadMoreSaga()
   ]);
 }

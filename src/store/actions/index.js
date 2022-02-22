@@ -33,17 +33,63 @@ export const getWatchVideoDetailsRequested = (videoId) => {
 }
 
 
-export const SEARCH_TERM_REQUESTED = 'SEARCH_TERM_REQUESTED';
+export const SEARCH_QUERY_REQUESTED = 'SEARCH_QUERY_REQUESTED';
 
-export const searchTermRequested = (query) => {
+export const searchQueryRequested = (query) => {
     return {
-        type: SEARCH_TERM_REQUESTED,
+        type: SEARCH_QUERY_REQUESTED,
+        payload: {
+            query: query,
+        }
+    }
+}
+
+export const SEARCH_QUERY_SUCCESS = 'SEARCH_QUERY_SUCCESS';
+
+export const searchQuerySuccess = (payload) => {
+    return {
+        type: SEARCH_QUERY_SUCCESS,
+        payload
+    }
+}
+
+export const SEARCH_QUERY_ERROR = 'SEARCH_QUERY_ERROR';
+
+export const searchQueryError = (payload) => {
+    return {
+        type: SEARCH_QUERY_ERROR,
+        payload
+    }
+}
+
+export const SEARCH_QUERY_LOAD_MORE = 'SEARCH_QUERY_LOAD_MORE';
+
+export const searchQueryLoadMore = (query) => {
+    return {
+        type: SEARCH_QUERY_LOAD_MORE,
         payload: {
             query: query
         }
     }
 }
 
+export const SEARCH_QUERY_LOAD_MORE_SUCCESS = 'SEARCH_QUERY_LOAD_MORE_SUCCESS';
+
+export const searchQueryLoadMoreSuccess = (payload) => {
+    return {
+        type: SEARCH_QUERY_LOAD_MORE_SUCCESS,
+        payload
+    }
+}
+
+export const SEARCH_QUERY_LOAD_MORE_ERROR = 'SEARCH_QUERY_LOAD_MORE_ERROR';
+
+export const searchQueryLoadMoreError = (payload) => {
+    return {
+        type: SEARCH_QUERY_LOAD_MORE_ERROR,
+        payload
+    }
+}
 
 export const VIDEO_RENDERED_TAG_SELECTED = 'VIDEO_RENDERED_TAG_SELECTED';
 

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
 import { getSearchParam } from '../../helper-function/url';
-import { searchTermRequested } from '../../store/actions/index';
+import { searchQueryRequested } from '../../store/actions/index';
+import { searchQueryLoadMore } from '../../store/actions/index';
 import ResultsContent from './ResultsContent';
 import Sidebar from '../Home/Sidebar';
 
@@ -34,9 +35,6 @@ export default connect(mapStateToProps)(Results);
 //   };
 
 function Results({ results, currentPath }) {
-    // const [currentPath, setCurrentPath] = useState(window.location.href);
-
-    // const path = useReactPath();
 
     const dispatch = useDispatch();
 
@@ -48,19 +46,21 @@ function Results({ results, currentPath }) {
 
     useEffect(() => {
 
-        // const queryTerm = getQuery();
-        dispatch(searchTermRequested(queryTerm));
-        console.log('result rerender')
+        dispatch(searchQueryRequested(queryTerm));
+        
+        
+    }, [currentPath]);
 
-        return;
-
-    }, [currentPath])
+    const bottomReachedCallback = () => {
+        console.log("on bottom reached callback.")
+        dispatch(searchQueryLoadMore(queryTerm));
+    }
 
 
     return (
         <div className="results">
             <Sidebar />
-            <ResultsContent results={results} />
+            <ResultsContent results={results} bottomReachedCallback={bottomReachedCallback} />
         </div>
     );
 }
