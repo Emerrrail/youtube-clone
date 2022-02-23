@@ -2,16 +2,21 @@ import youtube from "../../apis/youtube"
 import React, { useState, useEffect } from "react";
 import { connect } from 'react-redux';
 import { useDispatch } from "react-redux";
-import { bindActionCreators } from 'redux';
-import SidebarFullMenu from "./SidebarFullMenu";
-import Header from "./Header";
+// import SidebarFullMenu from "./SidebarFullMenu";
+// import Header from "./Header";
 import Sidebar from "./Sidebar";
 import RecomVideos from "./RecomVideos";
 import { getAllPopularVideosRequested } from '../../store/actions/index';
 
+function mapStateToProps(state) {
+    return {
+        videos: state.videos.videos
+    }   //回傳出去
+}
 
+export default connect(mapStateToProps)(Home);
 
-function Home({ state, videos }) {   //當props傳進來
+function Home({ videos }) {   //當props傳進來
 
     // const [isFullMenuOpen, setIsFullMenuOpen] = useState(false);
     // const [defaultVideos, setDefaultVideos] = useState([]);
@@ -61,5 +66,4 @@ function Home({ state, videos }) {   //當props傳進來
     );
 }
 
-
-export default Home;
+// export default Home;

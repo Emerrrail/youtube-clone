@@ -7,3 +7,7 @@
 .resultsContent__hr {
     color: var(--spec-text-color-secondary);
 }
+
+.resultsContent__renderedVideoItems {
+    padding-bottom: 40px;
+}

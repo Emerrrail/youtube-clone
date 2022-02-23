@@ -7,10 +7,12 @@ import { searchQueryLoadMore } from '../../store/actions/index';
 import ResultsContent from './ResultsContent';
 import Sidebar from '../Home/Sidebar';
 
+
 function mapStateToProps(state) {
     return {
-        state: state,
-        results: state.searchQuery.results
+        results: state.searchQuery.results,
+        firstToken: state.searchQuery.nextPageToken,
+        loading: state.searchQuery.loading
     }   //回傳出去
 }
 
@@ -34,7 +36,7 @@ export default connect(mapStateToProps)(Results);
 //     return path;
 //   };
 
-function Results({ results, currentPath }) {
+function Results({ results, firstToken, loading, currentPath }) {
 
     const dispatch = useDispatch();
 
@@ -47,20 +49,20 @@ function Results({ results, currentPath }) {
     useEffect(() => {
 
         dispatch(searchQueryRequested(queryTerm));
-        
-        
+
+
     }, [currentPath]);
 
     const bottomReachedCallback = () => {
         console.log("on bottom reached callback.")
-        dispatch(searchQueryLoadMore(queryTerm));
+        dispatch(searchQueryLoadMore(queryTerm, firstToken));
     }
 
 
     return (
         <div className="results">
             <Sidebar />
-            <ResultsContent results={results} bottomReachedCallback={bottomReachedCallback} />
+            <ResultsContent results={results} bottomReachedCallback={bottomReachedCallback} loading={loading} />
         </div>
     );
 }

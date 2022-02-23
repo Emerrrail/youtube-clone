@@ -15,7 +15,7 @@ export const searchQuery = (state = initialState, action) => {
                 ...state, 
                 loading: true, 
                 results: [], 
-                nextPageToken: '' 
+                nextPageToken: ''
             }
         case 'SEARCH_QUERY_SUCCESS':
             return {

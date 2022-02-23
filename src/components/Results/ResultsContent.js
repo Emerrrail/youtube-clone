@@ -2,8 +2,9 @@ import './ResultsContent.css';
 import React from 'react'
 import VideoItem from './VideoItem';
 import InfiniteScroll from '../InfiniteScroll';
+import Loader from '../Loader';
 
-function ResultsContent({ results, bottomReachedCallback }) {
+function ResultsContent({ results, bottomReachedCallback, loading }) {
 
     const renderedVideoItems = results.map((result, index) => {
         return <VideoItem
@@ -23,8 +24,10 @@ function ResultsContent({ results, bottomReachedCallback }) {
 
     return (
         <div className="resultsContent">
-            <hr className="resultsContent__hr" />
-            {renderedVideoItems}
+            <div className="resultsContent__renderedVideoItems">
+                <hr className="resultsContent__hr" />
+                {renderedVideoItems}
+            </div>
             <InfiniteScroll bottomReachedCallback={bottomReachedCallback} />
         </div>
     )

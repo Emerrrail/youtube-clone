@@ -1,7 +1,6 @@
 export const YOUTUBE_LIBRARY_LOADED = 'YOUTUBE_LIBRARY_LOADED';
 
 export const youtubeLibraryLoaded = () => {
-    // return createAction.bind(null, YOUTUBE_LIBRARY_LOADED); 
     return {
         type: YOUTUBE_LIBRARY_LOADED,
         payload: {
@@ -64,11 +63,12 @@ export const searchQueryError = (payload) => {
 
 export const SEARCH_QUERY_LOAD_MORE = 'SEARCH_QUERY_LOAD_MORE';
 
-export const searchQueryLoadMore = (query) => {
+export const searchQueryLoadMore = (query, firstToken) => {
     return {
         type: SEARCH_QUERY_LOAD_MORE,
         payload: {
-            query: query
+            query: query,
+            firstToken: firstToken
         }
     }
 }
@@ -103,13 +103,5 @@ export const videoRenderedTagSelected = (tag, categoryId) => {
     }
 }
 
-export const videoSelected = (video) => {
-    return {
-        type: 'VIDEO_SELECTED',
-        payload: {
-            video: video
-        }
-    }
-}
 
 
