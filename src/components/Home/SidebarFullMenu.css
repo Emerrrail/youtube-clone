@@ -2,8 +2,9 @@
     width: 240px;
     height: 100%;
     z-index: 2000;
-    position: absolute;
+    position: fixed;
     top: 0;
+    bottom: 0;
     left: -240px;
     -webkit-transform: translateX(0);
     transform: translateX(0);

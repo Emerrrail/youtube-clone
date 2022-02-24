@@ -9,14 +9,60 @@ export const youtubeLibraryLoaded = () => {
     }
 }
 
-export const GET_ALL_POPULAR_VIDEOS_REQUESTED = 'GET_ALL_POPULAR_VIDEOS_REQUESTED';
-export const GET_ALL_POPULAR_VIDEOS_SUCCESS = 'GET_ALL_POPULAR_VIDEOS_SUCCESS';
-export const GET_ALL_POPULAR_VIDEOS_ERROR = 'GET_ALL_POPULAR_VIDEOS_ERROR';
+export const GET_VIDEOS_BY_CATEGORY_REQUESTED = 'GET_VIDEOS_BY_CATEGORY_REQUESTED';
+export const GET_VIDEOS_BY_CATEGORY_SUCCESS = 'GET_VIDEOS_BY_CATEGORY_SUCCESS';
+export const GET_VIDEOS_BY_CATEGORY_ERROR = 'GET_VIDEOS_BY_CATEGORY_ERROR';
 
-export const getAllPopularVideosRequested = () => {
+export const getVideosByCategoryRequested = (categoryId) => {
     return {
-        type: GET_ALL_POPULAR_VIDEOS_REQUESTED
+        type: GET_VIDEOS_BY_CATEGORY_REQUESTED,
+        payload: {
+            categoryId: categoryId
+        }
     };
+}
+
+export const GET_VIDEOS_BY_CATEGORY_LOAD_MORE = 'GET_VIDEOS_BY_CATEGORY_LOAD_MORE';
+
+export const getVideosByCategoryLoadMore = (categoryId, token) => {
+    return {
+        type: GET_VIDEOS_BY_CATEGORY_LOAD_MORE,
+        payload: {
+            categoryId: categoryId,
+            token: token
+        }
+    }
+}
+
+export const GET_VIDEOS_BY_CATEGORY_LOAD_MORE_SUCCESS = 'GET_VIDEOS_BY_CATEGORY_LOAD_MORE_SUCCESS';
+
+export const getVideosByCategoryLoadMoreSuccess = (payload) => {
+    return {
+        type: GET_VIDEOS_BY_CATEGORY_LOAD_MORE_SUCCESS,
+        payload
+    }
+}
+
+export const GET_VIDEOS_BY_CATEGORY_LOAD_MORE_ERROR = 'GET_VIDEOS_BY_CATEGORY_LOAD_MORE_ERROR';
+
+export const getVideosByCategoryLoadMoreError = (payload) => {
+    return {
+        type: GET_VIDEOS_BY_CATEGORY_LOAD_MORE_ERROR,
+        payload
+    }
+}
+
+
+export const VIDEO_RENDERED_TAG_SELECTED = 'VIDEO_RENDERED_TAG_SELECTED';
+
+export const videoRenderedTagSelected = (tag, categoryId) => {
+    return {
+        type: VIDEO_RENDERED_TAG_SELECTED,
+        payload: {
+            selectedTag: tag,
+            categoryId: categoryId
+        }
+    }
 }
 
 
@@ -63,12 +109,12 @@ export const searchQueryError = (payload) => {
 
 export const SEARCH_QUERY_LOAD_MORE = 'SEARCH_QUERY_LOAD_MORE';
 
-export const searchQueryLoadMore = (query, firstToken) => {
+export const searchQueryLoadMore = (query, token) => {
     return {
         type: SEARCH_QUERY_LOAD_MORE,
         payload: {
             query: query,
-            firstToken: firstToken
+            token: token
         }
     }
 }
@@ -91,17 +137,7 @@ export const searchQueryLoadMoreError = (payload) => {
     }
 }
 
-export const VIDEO_RENDERED_TAG_SELECTED = 'VIDEO_RENDERED_TAG_SELECTED';
 
-export const videoRenderedTagSelected = (tag, categoryId) => {
-    return {
-        type: VIDEO_RENDERED_TAG_SELECTED,
-        payload: {
-            selectedTag: tag,
-            categoryId: categoryId
-        }
-    }
-}
 
 
 

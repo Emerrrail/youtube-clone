@@ -4,11 +4,11 @@ import VideoCard from "./VideoCard";
 
 function DefaultVideos({ videos }) {
 
-    const renderVideos = videos.map((video) => {
+    const renderVideos = videos.map((video, index) => {
         return <VideoCard
             pathname="/watch"
             search={`?v=${video.id}`}
-            key={video.id}
+            key={index}
             videoId={video.id}
             img={video.snippet.thumbnails.medium.url}
             title={video.snippet.title}

@@ -11,7 +11,7 @@ import Sidebar from '../Home/Sidebar';
 function mapStateToProps(state) {
     return {
         results: state.searchQuery.results,
-        firstToken: state.searchQuery.nextPageToken,
+        token: state.searchQuery.nextPageToken,
         loading: state.searchQuery.loading
     }   //回傳出去
 }
@@ -36,7 +36,7 @@ export default connect(mapStateToProps)(Results);
 //     return path;
 //   };
 
-function Results({ results, firstToken, loading, currentPath }) {
+function Results({ results, token, loading, currentPath }) {
 
     const dispatch = useDispatch();
 
@@ -55,7 +55,7 @@ function Results({ results, firstToken, loading, currentPath }) {
 
     const bottomReachedCallback = () => {
         console.log("on bottom reached callback.")
-        dispatch(searchQueryLoadMore(queryTerm, firstToken));
+        dispatch(searchQueryLoadMore(queryTerm, token));
     }
 
 

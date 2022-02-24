@@ -8,7 +8,7 @@ function VideoCard({ pathname, search, videoId, img, title, channelImg, channelN
 
     // const dispatch = useDispatch();
 
-    const viewsW = Math.floor(views / 10000);
+    const viewsW = Math.floor(views / 10000).toLocaleString();
 
     return (
         <Link to={{ pathname: pathname, search: search }} >

@@ -6,17 +6,21 @@ import { useDispatch } from "react-redux";
 // import Header from "./Header";
 import Sidebar from "./Sidebar";
 import RecomVideos from "./RecomVideos";
-import { getAllPopularVideosRequested } from '../../store/actions/index';
+import InfiniteScroll from "../InfiniteScroll";
+import { getVideosByCategoryRequested, getVideosByCategoryLoadMore } from '../../store/actions/index';
+
 
 function mapStateToProps(state) {
     return {
-        videos: state.videos.videos
+        videos: state.videos.videos,
+        token: state.videos.nextPageToken,
+        categoryId: state.tagSelected.categoryId
     }   //回傳出去
 }
 
 export default connect(mapStateToProps)(Home);
 
-function Home({ videos }) {   //當props傳進來
+function Home({ videos, token, categoryId }) {   //當props傳進來
 
     // const [isFullMenuOpen, setIsFullMenuOpen] = useState(false);
     // const [defaultVideos, setDefaultVideos] = useState([]);
@@ -37,14 +41,21 @@ function Home({ videos }) {   //當props傳進來
     //     setDefaultVideos(response.data.items);
     // }
     // getDefaultVideos();
-    // getAllPopularVideosRequested();
+    // getVideosByCategoryRequested();
     // }, [state]);  //state改變就re-render
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getAllPopularVideosRequested());
-    }, [])
+
+        dispatch(getVideosByCategoryRequested(categoryId));
+
+    }, [categoryId])
+
+    const bottomReachedCallback = () => {
+        console.log('bottom reached from home page');
+        dispatch(getVideosByCategoryLoadMore(categoryId, token));
+    }
 
     return (
         <div className="home">
@@ -61,6 +72,8 @@ function Home({ videos }) {   //當props傳進來
                     className="home__sidebar"
                 />
                 <RecomVideos videos={videos} />
+                <InfiniteScroll bottomReachedCallback={bottomReachedCallback} />
+                Loading
             </div>
         </div>
     );

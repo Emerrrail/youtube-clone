@@ -12,13 +12,14 @@ function AppLayout({ children, setCurrentPath }) {
 
     return (
         <div className="appLayout">
+
+            <Header setCurrentPath={setCurrentPath} onFullMenuToggle={onFullMenuToggle} />
+            {children}
             <SidebarFullMenu
                 className="home__sidebarFullMenu"
                 isFullMenuOpen={isFullMenuOpen}
                 onFullMenuToggle={onFullMenuToggle}
             />
-            <Header setCurrentPath={setCurrentPath} onFullMenuToggle={onFullMenuToggle} />
-            {children}
         </div>
     );
 }
