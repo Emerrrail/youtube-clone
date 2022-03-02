@@ -11,8 +11,6 @@ function WatchContent({ watchVideo, videoId }) {
     }
     const video = watchVideo[0]; //把他從array拿出來
 
-    console.log(video.snippet, 'watchcontent')
-
     return (
         <div className="videoContent container-xl">
             <VideoPlayer videoId={videoId} />
@@ -23,10 +21,10 @@ function WatchContent({ watchVideo, videoId }) {
                 <VideoMetadata video={video} />
             </div>
             {/* <RelatedVideos /> */}
-            
+
             <hr />
             <VideoInfo video={video} />
-            <hr />
+            {/* <hr /> */}
             {/* <Comments /> */}
         </div>
     );

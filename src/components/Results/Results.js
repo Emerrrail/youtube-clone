@@ -1,3 +1,4 @@
+import useMediaQuery from "../../helper-function/use-media-query";
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
@@ -18,27 +19,15 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps)(Results);
 
-
-// const useReactPath = () => {
-//     const [path, setPath] = useState(window.location.href);
-//     const listenToPopstate = () => {
-//       const winPath = window.location.href;
-//       console.log("on location change");
-//       setPath(winPath);
-//     };
-//     useEffect(() => {
-//       window.addEventListener("popstate", listenToPopstate);
-//       console.log("add Listener.");
-//       return () => {
-//         window.removeEventListener("popstate", listenToPopstate);
-//       };
-//     }, []);
-//     return path;
-//   };
-
 function Results({ results, token, loading, currentPath }) {
 
     const dispatch = useDispatch();
+
+    const hideSidebar = useMediaQuery('(max-width: 807px)');
+
+    const shrinkImg = useMediaQuery('(max-width: 576px)');
+
+    const uniqueResults = [...new Set(results)];
 
     const getQuery = () => {
         return getSearchParam(window.location, 'search_query')
@@ -54,15 +43,22 @@ function Results({ results, token, loading, currentPath }) {
     }, [currentPath]);
 
     const bottomReachedCallback = () => {
-        console.log("on bottom reached callback.")
+
         dispatch(searchQueryLoadMore(queryTerm, token));
     }
 
 
     return (
         <div className="results">
-            <Sidebar />
-            <ResultsContent results={results} bottomReachedCallback={bottomReachedCallback} loading={loading} />
+            {hideSidebar ?
+                <ResultsContent results={uniqueResults} bottomReachedCallback={bottomReachedCallback} loading={loading} shrinkImg={shrinkImg} />
+                :
+                <div>
+                    <Sidebar />
+                    <ResultsContent results={uniqueResults} bottomReachedCallback={bottomReachedCallback} loading={loading} shrinkImg={shrinkImg} />
+                </div>
+            }
+
         </div>
     );
 }

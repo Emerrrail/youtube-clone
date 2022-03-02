@@ -4,7 +4,7 @@ import VideoItem from './VideoItem';
 import InfiniteScroll from '../InfiniteScroll';
 import Loader from '../Loader';
 
-function ResultsContent({ results, bottomReachedCallback, loading }) {
+function ResultsContent({ results, bottomReachedCallback, loading, shrinkImg }) {
 
     const renderedVideoItems = results.map((result, index) => {
         return <VideoItem
@@ -16,6 +16,7 @@ function ResultsContent({ results, bottomReachedCallback, loading }) {
             // channelImg={}
             channelName={result.snippet.channelTitle}
             description={result.snippet.description}
+            shrinkImg={shrinkImg}
         // views={result.statistics.viewCount}
         // daysAgo={} 
         />
@@ -29,6 +30,7 @@ function ResultsContent({ results, bottomReachedCallback, loading }) {
                 {renderedVideoItems}
             </div>
             <InfiniteScroll bottomReachedCallback={bottomReachedCallback} />
+            {results && loading ? <Loader /> : null}
         </div>
     )
 }

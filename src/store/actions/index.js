@@ -67,6 +67,8 @@ export const videoRenderedTagSelected = (tag, categoryId) => {
 
 
 export const GET_WATCH_VIDEO_DETAILS_REQUESTED = 'GET_WATCH_VIDEO_DETAILS_REQUESTED';
+export const GET_WATCH_VIDEO_DETAILS_SUCCESS = 'GET_WATCH_VIDEO_DETAILS_SUCCESS';
+export const GET_WATCH_VIDEO_DETAILS_ERROR = 'GET_WATCH_VIDEO_DETAILS_ERROR';
 
 export const getWatchVideoDetailsRequested = (videoId) => {
     return {

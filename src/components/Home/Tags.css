@@ -10,10 +10,19 @@
     border-bottom: 1px solid var(--searchbox-border-shadow-color);
     z-index: 1000;
     display: flex;
+    justify-content: center;
     align-items: center;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.tags::-webkit-scrollbar {
+    display: none;
 }
 
 .tagButton {
+    width: auto;
     height: 32px;
     margin: 12px 12px 12px 0;
     background-color: var(--searchbox-button-color);
@@ -21,6 +30,7 @@
     border-radius: 16px;
     display: flex;
     align-items: center;
+    
     transition: .2s ease all;
 }
 
@@ -48,6 +58,19 @@
 }
 
 .tagButton__text {
+    width: 100%;
     padding: 0 12px;
+    white-space: nowrap;
 }
 
+@media (max-width: 825px) {
+    .tags {
+        justify-content: start;
+    }
+}
+
+@media (max-width: 720px) {
+    .tags {
+        margin-left: 0;
+    }
+}

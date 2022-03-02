@@ -3,9 +3,15 @@
     margin-top: 16px;
 }
 
-/* .videoItem__img {
-    
-} */
+.videoItem__img {
+    width: 35vh;
+    height: 20vh;
+}
+
+.videoItem__img_shrink {
+    width: 25vh;
+    height: 15vh;
+}
 
 .videoItem__text {
     margin-left: 16px;
@@ -14,6 +20,12 @@
 .videoItem__title {
     font-size: 18px;
     color: var(--spec-text-color-primary);
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    white-space: normal;
 }
 
 .videoItem__channelInfo {
@@ -31,4 +43,10 @@
 .videoItem__description {
     color: var(--spec-text-color-secondary);
     font-size: 12px;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    white-space: normal;
 }

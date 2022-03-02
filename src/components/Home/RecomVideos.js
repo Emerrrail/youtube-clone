@@ -1,12 +1,14 @@
 import React from 'react'
 import Tags from './Tags';
+import HomePlaceholder from './HomePlaceholder';
 import DefaultVideos from './DefaultVideos';
 
-function RecomVideos({ videos }) {
+function RecomVideos({ videos, loading }) {
     return (
         <div className="recomVideos">
             <Tags />
-            <DefaultVideos videos={videos}/>
+            {loading && <HomePlaceholder />}
+            <DefaultVideos videos={videos} />
         </div>
     )
 }

@@ -1,0 +1,19 @@
+.headerSimplified {
+    width: 100%;
+    height: 56px;
+    padding: 0 16px;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    align-items: center;
+}
+
+.headerSimplified__searchbar {
+    width: 100%;
+    height: auto;
+}
+
+.headerSimplified__arrowBack {
+    margin-right: var(--general-padding);
+    padding: 8px;
+    cursor: pointer;
+}

@@ -2,6 +2,7 @@
     margin-left: 72px;
     padding: 16px 24px;
     background-color: var(--searchbox-button-color);
+
 }
 
 .resultsContent__hr {
@@ -10,4 +11,12 @@
 
 .resultsContent__renderedVideoItems {
     padding-bottom: 40px;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+@media (max-width: 807px) {
+    .resultsContent {
+        margin-left: 0;
+    }
 }

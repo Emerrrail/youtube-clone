@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Loader({ loading }) {
+function Loader() {
     return (
-        <div className={`ui ${loading ? 'active' : ''} centered inline loader`}></div>
+        <div className="ui active centered inline loader" style={{ height: "100vh" }}></div>
 
     )
 }

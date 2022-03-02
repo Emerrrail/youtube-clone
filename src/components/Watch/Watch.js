@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getSearchParam } from '../../helper-function/url';
+import { scrollToTop } from '../../helper-function/window-scroll';
 import { getWatchVideoDetailsRequested } from '../../store/actions';
 import WatchContent from './WatchContent';
 
@@ -31,10 +32,11 @@ function Watch({ state, watchVideo }) {
 
     useEffect(() => {
         dispatch(getWatchVideoDetailsRequested(videoId));
+        scrollToTop();
     }, [])
 
     console.log(state);
-    
+
     return (
         <div className="watch">
             <WatchContent watchVideo={watchVideo} videoId={videoId} />

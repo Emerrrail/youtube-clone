@@ -1,12 +1,11 @@
-import youtube from "../../apis/youtube"
+import useMediaQuery from "../../helper-function/use-media-query";
 import React, { useState, useEffect } from "react";
 import { connect } from 'react-redux';
 import { useDispatch } from "react-redux";
-// import SidebarFullMenu from "./SidebarFullMenu";
-// import Header from "./Header";
 import Sidebar from "./Sidebar";
 import RecomVideos from "./RecomVideos";
 import InfiniteScroll from "../InfiniteScroll";
+import HomePlaceholder from "./HomePlaceholder";
 import { getVideosByCategoryRequested, getVideosByCategoryLoadMore } from '../../store/actions/index';
 
 
@@ -14,41 +13,23 @@ function mapStateToProps(state) {
     return {
         videos: state.videos.videos,
         token: state.videos.nextPageToken,
+        loading: state.videos.loading,
         categoryId: state.tagSelected.categoryId
     }   //回傳出去
 }
 
 export default connect(mapStateToProps)(Home);
 
-function Home({ videos, token, categoryId }) {   //當props傳進來
-
-    // const [isFullMenuOpen, setIsFullMenuOpen] = useState(false);
-    // const [defaultVideos, setDefaultVideos] = useState([]);
-    // const onFullMenuToggle = () => {
-    //     setIsFullMenuOpen(!isFullMenuOpen);
-    // }
-
-    // useEffect(() => {
-    // const getDefaultVideos = async () => {
-    //     const response = await youtube.get('/videos', {
-    //         params: {
-    //             part: "snippet, contentDetails, statistics",
-    //             chart: "mostPopular",
-    //             maxResults: 20,
-    //             regionCode: "TW"
-    //         }
-    //     });
-    //     setDefaultVideos(response.data.items);
-    // }
-    // getDefaultVideos();
-    // getVideosByCategoryRequested();
-    // }, [state]);  //state改變就re-render
+function Home({ videos, token, loading, categoryId }) {   //當props傳進來
 
     const dispatch = useDispatch();
+
+    const hideSidebar = useMediaQuery('(max-width: 720px)');
 
     useEffect(() => {
 
         dispatch(getVideosByCategoryRequested(categoryId));
+        
 
     }, [categoryId])
 
@@ -59,22 +40,23 @@ function Home({ videos, token, categoryId }) {   //當props傳進來
 
     return (
         <div className="home">
-            {/* <SidebarFullMenu
-                className="home__sidebarFullMenu"
-                isFullMenuOpen={isFullMenuOpen}
-                onFullMenuToggle={onFullMenuToggle}
-            />
-            <Header
-                onFullMenuToggle={onFullMenuToggle}
-            /> */}
-            <div className="home__page">
-                <Sidebar
-                    className="home__sidebar"
-                />
-                <RecomVideos videos={videos} />
-                <InfiniteScroll bottomReachedCallback={bottomReachedCallback} />
-                Loading
-            </div>
+            {hideSidebar ?
+                <div className="home__page">
+                    <RecomVideos videos={videos} loading={loading} />
+                    <InfiniteScroll bottomReachedCallback={bottomReachedCallback} />
+                    .
+                    {videos && loading ? <HomePlaceholder /> : null}
+                </div>
+                : <div className="home__page">
+                    <Sidebar
+                        className="home__sidebar"
+                    />
+                    <RecomVideos videos={videos} loading={loading} />
+                    <InfiniteScroll bottomReachedCallback={bottomReachedCallback} />
+                    .
+                    {videos && loading ? <HomePlaceholder /> : null}
+                </div>
+            }
         </div>
     );
 }
