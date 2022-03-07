@@ -1,7 +1,6 @@
 import youtube from '../../../apis/youtube';
-import { call, put, take, fork, takeEvery, takeLatest } from 'redux-saga/effects';
+import { call, put, take } from 'redux-saga/effects';
 import { GET_WATCH_VIDEO_DETAILS_REQUESTED } from '../../actions/index';
-// import { watchVideo } from '../../reducers/watchVideo';
 
 
 export function* watcherWatchVideoSaga() {

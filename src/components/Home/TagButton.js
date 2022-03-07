@@ -3,15 +3,6 @@ import { useDispatch } from "react-redux";
 import { videoRenderedTagSelected } from "../../store/actions/index";
 import { connect } from 'react-redux';
 
-
-
-function mapStateToProps(state) {
-    return {
-        tagSelected: state.tagSelected.selectedTag
-    }   //回傳出去
-}
-export default connect(mapStateToProps)(TagButton)
-
 function TagButton({ text, categoryId, tagSelected }) {
 
     const dispatch = useDispatch();
@@ -28,4 +19,9 @@ function TagButton({ text, categoryId, tagSelected }) {
     );
 }
 
-    // export default TagButton;
+function mapStateToProps(state) {
+    return {
+        tagSelected: state.tagSelected.selectedTag
+    }
+}
+export default connect(mapStateToProps)(TagButton)

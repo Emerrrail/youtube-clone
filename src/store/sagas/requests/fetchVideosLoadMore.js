@@ -1,5 +1,5 @@
 import youtube from '../../../apis/youtube';
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 import { GET_VIDEOS_BY_CATEGORY_LOAD_MORE, GET_VIDEOS_BY_CATEGORY_LOAD_MORE_SUCCESS, GET_VIDEOS_BY_CATEGORY_LOAD_MORE_ERROR } from '../../actions';
 
 export function* watcherVideosLoadMoreSaga() {

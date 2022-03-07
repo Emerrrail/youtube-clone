@@ -24,19 +24,18 @@
 .tagButton {
     width: auto;
     height: 32px;
-    margin: 12px 12px 12px 0;
+    margin-right: 12px;
     background-color: var(--searchbox-button-color);
     border: 1px solid var(--searchbox-border-color);
     border-radius: 16px;
     display: flex;
     align-items: center;
-    
     transition: .2s ease all;
 }
 
 .tagButtonNoHover.selected {
     height: 32px;
-    margin: 12px 12px 12px 0;
+    margin-right: 12px;
     background-color: var(--spec-text-color-primary);
     border: 1px solid var(--spec-text-color-primary);
     border-radius: 16px;

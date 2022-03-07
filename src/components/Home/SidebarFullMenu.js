@@ -1,19 +1,16 @@
 import "./SidebarFullMenu.css"
-import React, { useState } from 'react'
+import React from 'react';
+import { Link } from "react-router-dom";
 import SidebarRow from './SidebarRow';
-import SidebarButton from "./SidebarButton";
 import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import ExploreOutlinedIcon from '@material-ui/icons/ExploreOutlined';
 import SubscriptionsOutlinedIcon from '@material-ui/icons/SubscriptionsOutlined';
-import VideoLibraryOutlinedIcon from '@material-ui/icons/VideoLibraryOutlined';
 import HomeIcon from '@material-ui/icons/Home';
 import ExploreIcon from '@material-ui/icons/Explore';
 import SubscriptionsIcon from '@material-ui/icons/Subscriptions';
 
 function SidebarFullMenu({ isFullMenuOpen, onFullMenuToggle }) {
-    const [sidebarRowClicked, setSidebarRowClicked] = useState("首頁");
-
 
 
     return (
@@ -31,34 +28,36 @@ function SidebarFullMenu({ isFullMenuOpen, onFullMenuToggle }) {
                 />
             </div>
             <ul className="sidebarFullMenu__fullMenu">
-                <li><a>
-                    <SidebarRow
-                        Icon={HomeOutlinedIcon}
-                        IconClicked={HomeIcon}
-                        title="首頁"
-                        setSidebarRowClicked={setSidebarRowClicked}
-                        sidebarRowClicked={sidebarRowClicked}
-                    />
-                </a></li>
-                <li><a>
-                    <SidebarRow
-                        Icon={ExploreOutlinedIcon}
-                        IconClicked={ExploreIcon}
-                        title="探索"
-                        setSidebarRowClicked={setSidebarRowClicked}
-                        sidebarRowClicked={sidebarRowClicked}
-                    />
-                </a></li>
-                <li><a>
-                    <SidebarRow
-                        Icon={SubscriptionsOutlinedIcon}
-                        IconClicked={SubscriptionsIcon}
-                        title="訂閱內容"
-                        setSidebarRowClicked={setSidebarRowClicked}
-                        sidebarRowClicked={sidebarRowClicked}
-                    />
-                </a></li>
-
+                <li onClick={onFullMenuToggle}>
+                    <Link to="/">
+                        <SidebarRow
+                            Icon={HomeOutlinedIcon}
+                            IconClicked={HomeIcon}
+                            title="首頁"
+                            path="/"
+                        />
+                    </Link>
+                </li>
+                <li onClick={onFullMenuToggle}>
+                    <Link to="/explore">
+                        <SidebarRow
+                            Icon={ExploreOutlinedIcon}
+                            IconClicked={ExploreIcon}
+                            title="探索"
+                            path="/explore"
+                        />
+                    </Link>
+                </li>
+                <li onClick={onFullMenuToggle}>
+                    <Link to="/feed/subscriptions">
+                        <SidebarRow
+                            Icon={SubscriptionsOutlinedIcon}
+                            IconClicked={SubscriptionsIcon}
+                            title="訂閱內容"
+                            path="/feed/subscriptions"
+                        />
+                    </Link>
+                </li>
             </ul>
         </div>
     )

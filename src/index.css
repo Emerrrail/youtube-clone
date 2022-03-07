@@ -31,3 +31,14 @@ a {
     --grid-slim-items-per-row: 3;
 
 }
+.under_construction_pic__container {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.under_construction_pic {
+    width: 20vh;
+}

@@ -1,21 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react';
+import { useLocation } from "react-router-dom";
 
-function SidebarRow({ Icon, IconClicked, title, setSidebarRowClicked, sidebarRowClicked }) {
+function SidebarRow({ Icon, IconClicked, title, path }) {
 
-    const onSidebarRowClick = (target) => {
-        setSidebarRowClicked(target.target.innerText);
-    }
+    const location = useLocation();
 
     return (
-        <div
-            className="sidebarRow"
-            onClick={(target) => console.log(target.target, 'inside')}
-        >
-            <Icon className="sidebarRow__icon"/>
-            <div className={`sidebarRow__title${sidebarRowClicked === title ? " active" : ''}`}>
+        <div className="sidebarRow">
+            {location.pathname === path ?
+                <IconClicked className="sidebarRow__icon" />
+                : <Icon className="sidebarRow__icon" />}
+            <div className="sidebarRow__title">
                 {title}
             </div>
-
         </div>
     )
 }

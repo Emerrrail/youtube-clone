@@ -1,12 +1,8 @@
 import React from 'react'
-// import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import { getWatchVideoDetailsRequested } from '../../store/actions'; 
 import Avatar from '@material-ui/core/Avatar';
 
-function VideoCard({ pathname, search, videoId, img, title, channelImg, channelName, views, daysAgo }) {
-
-    // const dispatch = useDispatch();
+function VideoCard({ pathname, search, img, title, channelImg, channelName, views }) {
 
     const viewsW = Math.floor(views / 10000).toLocaleString();
 

@@ -1,16 +1,11 @@
 .videoItem {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
     margin-top: 16px;
 }
 
 .videoItem__img {
-    width: 35vh;
-    height: 20vh;
-}
-
-.videoItem__img_shrink {
-    width: 25vh;
-    height: 15vh;
+    width: 100%;
 }
 
 .videoItem__text {
@@ -21,7 +16,7 @@
     font-size: 18px;
     color: var(--spec-text-color-primary);
     overflow: hidden;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
@@ -49,4 +44,11 @@
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
     white-space: normal;
+}
+
+@media (max-width: 439px) {
+    .videoItem {
+        display: flex;
+        flex-direction: column;
+    }
 }

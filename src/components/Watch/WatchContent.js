@@ -9,7 +9,7 @@ function WatchContent({ watchVideo, videoId }) {
     if (watchVideo === [] || !watchVideo[0]) {
         return null;
     }
-    const video = watchVideo[0]; //把他從array拿出來
+    const video = watchVideo[0]
 
     return (
         <div className="videoContent container-xl">

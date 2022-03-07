@@ -40,6 +40,10 @@
     margin-right: var(--general-padding);
 }
 
+.search_icon {
+    cursor: pointer;
+}
+
 .header__icon.avatar {
     width: 35px;
     height: 35px;

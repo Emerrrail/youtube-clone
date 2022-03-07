@@ -1,6 +1,6 @@
 import "./Header.css";
 import useMediaQuery from '../../helper-function/use-media-query';
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Searchbar from "./Searchbar";
 import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
@@ -13,7 +13,6 @@ import SearchIcon from '@material-ui/icons/Search';
 function Header({ onFullMenuToggle, setCurrentPath, setShowFullSearchbar }) {
 
     const simplifySearchbar = useMediaQuery('(max-width: 526px)');
-
 
     const onShowFullSearchbarClick = () => {
         setShowFullSearchbar(true);
@@ -46,7 +45,7 @@ function Header({ onFullMenuToggle, setCurrentPath, setShowFullSearchbar }) {
                 {simplifySearchbar ?
                     <div>
                         <SearchIcon
-                            className="header__icon"
+                            className="header__icon search_icon"
                             style={{ fontSize: "40" }}
                             onClick={onShowFullSearchbarClick}
 
@@ -54,18 +53,23 @@ function Header({ onFullMenuToggle, setCurrentPath, setShowFullSearchbar }) {
                     </div>
                     : null
                 }
-                <VideoCallOutlinedIcon
-                    className="header__icon"
-                    style={{ fontSize: "40" }}
-                />
-                <AppsIcon
-                    className="header__icon"
-                    style={{ fontSize: "40" }}
-                />
-                <NotificationsNoneOutlinedIcon
-                    className="header__icon"
-                    style={{ fontSize: "40" }}
-                />
+                {!simplifySearchbar ?
+                    <div className="header__icons">
+                        <VideoCallOutlinedIcon
+                            className="header__icon"
+                            style={{ fontSize: "40" }}
+                        />
+                        <AppsIcon
+                            className="header__icon"
+                            style={{ fontSize: "40" }}
+                        />
+                        <NotificationsNoneOutlinedIcon
+                            className="header__icon"
+                            style={{ fontSize: "40" }}
+                        />
+                    </div>
+                    : null
+                }
                 <Avatar
                     className="header__icon avatar"
                     alt="user avatar"

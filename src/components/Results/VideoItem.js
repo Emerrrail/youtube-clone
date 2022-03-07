@@ -3,12 +3,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 
-function VideoItem({ pathname, search, img, title, channelName, description, shrinkImg }) {
+function VideoItem({ pathname, search, img, title, channelName, description }) {
     return (
         <Link to={{pathname: pathname, search: search}}>
         <div className="videoItem">
             <img
-                className={shrinkImg ? 'videoItem__img_shrink' : 'videoItem__img'}
+                // className={shrinkImg ? 'videoItem__img_shrink' : 'videoItem__img'}
+                className='videoItem__img'
                 src={img}
                 alt={title}
             />

@@ -4,9 +4,6 @@ import SearchIcon from '@material-ui/icons/Search';
 
 
 function Searchbar({ setCurrentPath }) {
-
-
-
     const navigate = useNavigate();
 
     const [query, setQuery] = useState("");
@@ -15,7 +12,6 @@ function Searchbar({ setCurrentPath }) {
         event.preventDefault();
         navigate(`/results?search_query=${query}`);
         setCurrentPath(query);
-        // window.location.reload(); //重整一次才能打API
     }
 
     return (

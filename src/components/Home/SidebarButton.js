@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 
-function SidebarButton({ Icon, title }) {
+function SidebarButton({ Icon, IconClicked, title, path }) {
+
+    const location = useLocation();
+
     return (
         <div className="sidebarButton">
-            <Icon className="sidebarButton__icon"/>
+            {location.pathname === path ?
+                <IconClicked className="sidebarButton__icon" />
+                : <Icon className="sidebarButton__icon" />}
             <h2>{title}</h2>
         </div>
     )

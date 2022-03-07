@@ -10,6 +10,7 @@ function AppLayout({ children, setCurrentPath }) {
     const [showFullSearchbar, setShowFullSearchbar] = useState(false);
 
     const onFullMenuToggle = () => {
+        console.log('toggle')
         setIsFullMenuOpen(!isFullMenuOpen);
     }
 

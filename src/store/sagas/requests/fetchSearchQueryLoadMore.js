@@ -1,5 +1,5 @@
 import youtube from '../../../apis/youtube';
-import { call, put, take, fork, takeEvery, takeLatest } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 import { SEARCH_QUERY_LOAD_MORE } from '../../actions/index';
 
 

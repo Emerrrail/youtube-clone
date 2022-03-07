@@ -4,7 +4,7 @@ import VideoItem from './VideoItem';
 import InfiniteScroll from '../InfiniteScroll';
 import Loader from '../Loader';
 
-function ResultsContent({ results, bottomReachedCallback, loading, shrinkImg }) {
+function ResultsContent({ results, bottomReachedCallback, loading }) {
 
     const renderedVideoItems = results.map((result, index) => {
         return <VideoItem
@@ -16,7 +16,6 @@ function ResultsContent({ results, bottomReachedCallback, loading, shrinkImg }) 
             // channelImg={}
             channelName={result.snippet.channelTitle}
             description={result.snippet.description}
-            shrinkImg={shrinkImg}
         // views={result.statistics.viewCount}
         // daysAgo={} 
         />
