@@ -4,7 +4,7 @@ This is a youtube-clone app where you can search and watch videos. It is bootstr
 
 ## 2 Deployment
 
-[Project Deployment](https://youtube-clone-2e8x9p11z-emerrrail.vercel.app/)
+[Project Deployment](https://youtube-clone-dusky.vercel.app/)
 
 ## 3 Features
 
