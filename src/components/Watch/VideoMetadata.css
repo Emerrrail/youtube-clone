@@ -27,3 +27,17 @@
     font-weight: bold;
 }
 
+@media (max-width: 600px) {
+    .videoMetadata {
+        display: block;
+    }
+
+    .videoMetadata__right {
+        margin-top: 16px;
+        justify-content: space-around;
+    }
+
+    .metaBtn {
+        margin: 0;
+    }
+}

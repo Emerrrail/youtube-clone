@@ -7,7 +7,7 @@ function VideoPlayer({ videoId }) {
     const videoBaseSrc = "https://www.youtube.com/embed/"
 
     return (
-        <div className="videoPlayer row">
+        <div className="videoPlayer row videobox">
             {/* <div className="row"> */}
                 <iframe
                     className="videoPlayer__player"
